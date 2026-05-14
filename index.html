@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tech Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h2>Tech Store</h2>
+  <div>
+    <a href="products.html">Products</a>
+    <a href="cart.html">Cart</a>
+    <button onclick="toggleDarkMode()">🌙</button>
+  </div>
+</header>
+
+<div class="container">
+  <h1>Welcome to Tech Store</h1>
+  <p>Best gadgets at best prices</p>
+
+  <h2>Featured Products</h2>
+  <div class="products" id="featured"></div>
+
+  <h2>Categories</h2>
+  <div class="products">
+    <div class="card">Mobiles</div>
+    <div class="card">Laptops</div>
+    <div class="card">Accessories</div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+
+<script>
+fetch("http://localhost:5000/api/products")
+.then(res => res.json())
+.then(products => {
+  const featured = document.getElementById("featured");
+  products.slice(0,2).forEach(p => {
+    featured.innerHTML += `
+      <div class="card">
+        <img src="${p.image}" width="100%">
+        <h3>${p.name}</h3>
+        <p>₹${p.price}</p>
+      </div>
+    `;
+  });
+});
+</script>
+
+</body>
+</html>
