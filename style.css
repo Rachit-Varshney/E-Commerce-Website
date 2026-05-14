@@ -1,0 +1,54 @@
+:root {
+  --bg: #ffffff;
+  --text: #000;
+  --card: #f1f5f9;
+}
+
+.dark {
+  --bg: #0f172a;
+  --text: #fff;
+  --card: #1e293b;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+  background: var(--bg);
+  color: var(--text);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background: var(--card);
+}
+
+.container {
+  padding: 20px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--card);
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+button {
+  padding: 10px;
+  background: blue;
+  color: white;
+  border: none;
+}
+
+input {
+  padding: 10px;
+  width: 100%;
+}
